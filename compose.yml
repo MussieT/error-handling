@@ -1,0 +1,16 @@
+version: '3'
+services:
+  error-handling:
+    container_name: error-handling
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    logging:
+      driver: "json-file"
+      options:
+        tag: ContainerName="{{.Name}}"
+    volumes:
+      - /var/lib/docker/error-handling

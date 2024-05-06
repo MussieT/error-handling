@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   error-handling:
     container_name: error-handling
@@ -14,3 +14,14 @@ services:
         tag: ContainerName="{{.Name}}"
     volumes:
       - /var/lib/docker/error-handling
+  logagent:
+    image: "sematext/logagent:latest"
+    environment:
+      - LOGS_TOKEN=f0411406-231c-489c-bf14-733df4f881a7
+      - LOGS_RECEIVER_URL="https://logsene-receiver.sematext.com"
+      - MATCH_BY_NAME=.*error-handling.*
+    cap_add:
+      - SYS_ADMIN
+    restart: unless-stopped
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"

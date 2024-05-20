@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -20,9 +21,15 @@
     "winston-logsene": "^2.1.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "jest": "^29.7.0",
+    "jest-runner-prettier": "^1.0.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.2.5"
   },
   "_moduleAliases": {
     "@server": "./server"
+  },
+  "jest": {
+    "preset": "jest-runner-prettier"
   }
 }

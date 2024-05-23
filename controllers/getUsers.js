@@ -1,13 +1,4 @@
-const users = [
-  {
-    id: 1,
-    name: "Mussie Teshome",
-  },
-  {
-    id: 2,
-    name: "Minilik Shumete",
-  },
-];
+const users = require("@server/mock/dbdata.json");
 
 function getOneUser(id) {
   const user = users.filter((item) => item.id == id);

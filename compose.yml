@@ -17,7 +17,7 @@ services:
   logagent:
     image: "sematext/logagent:latest"
     environment:
-      - LOGS_TOKEN=f0411406-231c-489c-bf14-733df4f881a7
+      - LOGS_TOKEN=${LOGS_TOKEN}
       - LOGS_RECEIVER_URL="https://logsene-receiver.sematext.com"
       - MATCH_BY_NAME=.*error-handling.*
     cap_add:

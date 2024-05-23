@@ -3,12 +3,16 @@ require("dotenv").config();
 require("spm-agent-nodejs");
 
 const express = require("express");
-const { logErrorMiddleware, returnError, logError } = require("./errorHandler");
-const httpLogger = require("./httpLogger.js");
-const { Api404Error } = require("./errorTypes.js");
+const {
+  logErrorMiddleware,
+  returnError,
+  logError,
+} = require("./error-handler/errorHandler");
+const httpLogger = require("./error-handler/httpLogger.js");
+const { Api404Error } = require("./error-handler/errorTypes.js");
 
-require("./error-unhandled.js");
-require("@root/alias/index.js");
+require("./error-handler/error-unhandled.js");
+// require("@root/alias/index.js");
 
 const app = express();
 
